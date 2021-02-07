@@ -9,31 +9,33 @@ yarn test
 ## TL;DR
 
 ```ts
-// returning simple data types like
+// Returning simple data types like
 // - string
 // - number
 // - undefined
 // - null
 // - boolean
-// is not problematic!
+// is not problematic.
 // Example:
 export const useString = () => "my static string";
 
-// retuning global object variables is not problematic!
+// Retuning global object variables is not problematic.
 const object = { hello: "world" };
 export const useGlobalObject = () => object;
 
-// also nested global object references is not problematic!
+// Also nested global object references is not problematic.
 const nestedObject = { nested: { hello: "world" } };
 export const useNestedGlobalObject = () => nestedObject.nested;
 
-// for non global objects in custom hooks use useRef
+// For non global objects in custom hooks use useRef.
+// Don't return the plain object
 export const useCustom = () => {
   const refObject = useRef({ hello: "world" });
   return refObject.current;
 };
 
-// if you want to define default values in redux selectors use global variables
+// If you want to define default values in redux selectors, which are not simple data types, use global variables.
+// Don't define non simple data types inline as default values.
 const defaultValue = { count: 0 };
 export const useCustom = () => {
   return useSelector<ReturnType<typeof rootReducer>>(
@@ -41,7 +43,8 @@ export const useCustom = () => {
   );
 };
 
-// if you want to filter a list in a redux selector use useRef and dequal (npm package)
+// If you want to filter a list in a redux selector use useRef and dequal (npm package).
+// Don't return the plain filtered value.
 export const useCustom = () => {
   const filteredState = useSelector<ReturnType<typeof rootReducer>>((state) =>
     state.list.filter((_, i) => i % 2 === 0)
