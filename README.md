@@ -57,3 +57,7 @@ export const useCustom = () => {
   return filteredRef.current;
 };
 ```
+
+## Why?
+
+If you don't beware of the above methods, it could trigger unwanted `useEffect` calls and unnecessary rerenderings which could effect the performance of your app.
