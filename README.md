@@ -15,7 +15,7 @@ yarn test
 // - undefined
 // - null
 // - boolean
-// is not problematic.
+// is not problematic. (shallow compare)
 // Example:
 export const useString = () => "my static string";
 
@@ -55,6 +55,36 @@ export const useCustom = () => {
     filteredRef.current = filteredState;
   }
   return filteredRef.current;
+};
+
+// Compare state objects if they could be equal to the current state.
+//  Setting primitives is harmless (shallow compare)
+// Prevent unnecessary rerenderings by setting equal objects without comparing before.
+const TestComponentSolution = () => {
+  const [count, setCount] = useState({ num: 0 });
+  const [prim, setPrim] = useState("hello world");
+  rendered();
+  return (
+    <>
+      <div
+        onClick={() => {
+          const newCount = { num: count.num }; // always equal
+          if (!dequal(newCount, count)) {
+            // never will be true
+            // so it will not rerender
+            setCount(newCount);
+          }
+        }}
+      />
+      <div onClick={() => setCount({ num: count.num + 1 })} />
+      <div
+        onClick={() => {
+          // harmless because of shallow compare
+          setPrim("hello world");
+        }}
+      />
+    </>
+  );
 };
 ```
 
