@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { render, fireEvent } from '@testing-library/react'
 
 import { freshStore, counterSlice } from './redux'
-import { useFail, useSolution } from './defaultValueSelector'
+import { useFail, useSolution } from './defaultValue'
 
 describe('default value selector', () => {
   const effectTriggered = jest.fn()

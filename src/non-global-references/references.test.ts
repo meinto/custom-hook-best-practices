@@ -22,8 +22,7 @@ describe('reference hooks (useEffect of useTestHook should be called only once)'
         const { rerender } = renderHook(() => useTestHook())
         expect(effectTriggered).toHaveBeenCalledTimes(1)
         rerender()
-        // useEffect is triggered twice
-        expect(effectTriggered).not.toHaveBeenCalledTimes(1) 
+        // useEffect is triggered twice after rerender
         expect(effectTriggered).toHaveBeenCalledTimes(2) 
       })
 
