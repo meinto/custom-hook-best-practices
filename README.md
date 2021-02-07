@@ -60,4 +60,4 @@ export const useCustom = () => {
 
 ## Why?
 
-If you don't beware of the above methods, it could trigger unwanted `useEffect` calls and unnecessary rerenderings which could effect the performance of your app.
+If you don't beware of the above methods, it could trigger unwanted hook calls like `useEffect`, when you use the result of your custom hook in the dependencies of another hook. Also it could trigger unnecessary rerenderings which could effect the performance of your app.
