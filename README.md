@@ -34,7 +34,8 @@ export const useCustom = () => {
   return refObject.current;
 };
 
-// If you want to define default values in redux selectors, which are not simple data types, use global variables.
+// If you want to define default values in redux selectors,
+//  which are not simple data types, use global variables.
 // Don't define non simple data types inline as default values.
 const defaultValue = { count: 0 };
 export const useCustom = () => {
