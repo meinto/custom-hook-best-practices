@@ -7,7 +7,7 @@ import {
   useBoolean,
   useUndefined,
   useNull,
-} from './simpleDataTypes'
+} from './primitives'
 import {
   useGlobalObject,
   useGlobalArray,
@@ -15,7 +15,7 @@ import {
   useNestedGlobalObjectClone,
   useNestedGlobalArray,
   useNestedGlobalArrayClone,
-} from './globalObjectReferences'
+} from './globalObjects'
 
 describe('simple hooks (useEffect of useTestHook should be called only once)', () => {
   describe.each([

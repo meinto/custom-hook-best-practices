@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { render, fireEvent } from '@testing-library/react'
 
-describe('component state tests', () => {
+describe('component primitive state tests', () => {
 
   const rendered = jest.fn()
 

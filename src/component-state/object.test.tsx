@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { dequal } from 'dequal'
 import { render, fireEvent } from '@testing-library/react'
 
-describe('usage tests', () => {
+describe('component object state tests', () => {
 
   const rendered = jest.fn()
 
