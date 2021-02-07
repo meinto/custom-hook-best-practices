@@ -87,7 +87,7 @@ const TestComponentSolution = () => {
   );
 };
 
-// Make small components to revent unnecessary rerenderings!!
+// Make small components to prevent unnecessary rerenderings!!
 const Child = () => {
   const [_, setState] = useState({});
   return <div data-testid="setChildState" onClick={() => setState({})} />;
