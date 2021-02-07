@@ -8,34 +8,34 @@ describe('reference hooks (useEffect of useTestHook should be called only once)'
   ])('', ({ name, useFail, useSolution }) => {
     describe(name, () => {
 
-      const effectTrigger = jest.fn()
+      const effectTriggered = jest.fn()
 
       beforeEach(() => {
-        effectTrigger.mockClear()
+        effectTriggered.mockClear()
       })
 
       test('useFail', () => {
         const useTestHook = () => {
           const result = useFail()
-          useEffect(() => effectTrigger(), [result])
+          useEffect(() => effectTriggered(), [result])
         }
         const { rerender } = renderHook(() => useTestHook())
-        expect(effectTrigger).toHaveBeenCalledTimes(1)
+        expect(effectTriggered).toHaveBeenCalledTimes(1)
         rerender()
         // useEffect is triggered twice
-        expect(effectTrigger).not.toHaveBeenCalledTimes(1) 
-        expect(effectTrigger).toHaveBeenCalledTimes(2) 
+        expect(effectTriggered).not.toHaveBeenCalledTimes(1) 
+        expect(effectTriggered).toHaveBeenCalledTimes(2) 
       })
 
       test('useSolution', () => {
         const useTestHook = () => {
           const result = useSolution()
-          useEffect(() => effectTrigger(), [result])
+          useEffect(() => effectTriggered(), [result])
         }
         const { rerender } = renderHook(() => useTestHook())
-        expect(effectTrigger).toHaveBeenCalledTimes(1)
+        expect(effectTriggered).toHaveBeenCalledTimes(1)
         rerender()
-        expect(effectTrigger).toHaveBeenCalledTimes(1)
+        expect(effectTriggered).toHaveBeenCalledTimes(1)
       })
 
     })

@@ -32,21 +32,21 @@ describe('simple hooks (useEffect of useTestHook should be called only once)', (
     ['useNestedGlobalArrayClone', useNestedGlobalArrayClone],
   ])('', (name, useHook) => {
 
-    const effectTrigger = jest.fn()
+    const effectTriggered = jest.fn()
 
     beforeEach(() => {
-      effectTrigger.mockClear()
+      effectTriggered.mockClear()
     })
 
     test(name, () => {
       const useTestHook = () => {
         const result = useHook()
-        useEffect(() => effectTrigger(), [result])
+        useEffect(() => effectTriggered(), [result])
       }
       const { rerender } = renderHook(() => useTestHook())
-      expect(effectTrigger).toHaveBeenCalledTimes(1)
+      expect(effectTriggered).toHaveBeenCalledTimes(1)
       rerender()
-      expect(effectTrigger).toHaveBeenCalledTimes(1)
+      expect(effectTriggered).toHaveBeenCalledTimes(1)
     })
   })
 })
