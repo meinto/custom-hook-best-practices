@@ -8,7 +8,7 @@ const sample = {
 
 export const useFail = () => ({ ...sample })
 
-export const useInstead = () => {
+export const useSolution = () => {
   const [stateObject] = useState({ ...sample })
   return stateObject
 }

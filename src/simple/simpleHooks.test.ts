@@ -7,9 +7,15 @@ import {
   useBoolean,
   useUndefined,
   useNull,
+} from './simpleDataTypes'
+import {
   useGlobalObject,
   useGlobalArray,
-} from './simpleHooks'
+  useNestedGlobalObject,
+  useNestedGlobalObjectClone,
+  useNestedGlobalArray,
+  useNestedGlobalArrayClone,
+} from './globalObjectReferences'
 
 describe('simple hooks (useEffect of useTestHook should be called only once)', () => {
   describe.each([
@@ -20,6 +26,10 @@ describe('simple hooks (useEffect of useTestHook should be called only once)', (
     ['useNull', useNull],
     ['useGlobalObject', useGlobalObject],
     ['useGlobalArray', useGlobalArray],
+    ['useNestedGlobalObject', useNestedGlobalObject],
+    ['useNestedGlobalObjectClone', useNestedGlobalObjectClone],
+    ['useNestedGlobalArray', useNestedGlobalArray],
+    ['useNestedGlobalArrayClone', useNestedGlobalArrayClone],
   ])('', (name, useHook) => {
 
     const effectTrigger = jest.fn()

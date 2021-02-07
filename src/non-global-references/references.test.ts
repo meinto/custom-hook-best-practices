@@ -3,10 +3,9 @@ import { renderHook } from '@testing-library/react-hooks'
 
 describe('reference hooks (useEffect of useTestHook should be called only once)', () => {
   describe.each([
-    require('./staticObjectReference'),
     require('./stateObjectReference'),
     require('./refObjectReference'),
-  ])('', ({ name, useFail, useInstead }) => {
+  ])('', ({ name, useFail, useSolution }) => {
     describe(name, () => {
 
       const effectTrigger = jest.fn()
@@ -28,9 +27,9 @@ describe('reference hooks (useEffect of useTestHook should be called only once)'
         expect(effectTrigger).toHaveBeenCalledTimes(2) 
       })
 
-      test('useInstead', () => {
+      test('useSolution', () => {
         const useTestHook = () => {
-          const result = useInstead()
+          const result = useSolution()
           useEffect(() => effectTrigger(), [result])
         }
         const { rerender } = renderHook(() => useTestHook())
