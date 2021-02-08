@@ -3,8 +3,9 @@ import { renderHook } from '@testing-library/react-hooks'
 
 describe('reference hooks (useEffect of useTestHook should be called only once)', () => {
   describe.each([
-    require('./stateObjectReference'),
-    require('./refObjectReference'),
+    require('./useStateReference'),
+    require('./useRefReference'),
+    require('./useMemoReference'),
   ])('', ({ name, useFail, useSolution }) => {
     describe(name, () => {
 
