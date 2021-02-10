@@ -58,11 +58,11 @@ const ExampleApp = () => {
 
 ## Non-global Objects
 
-In most cases you have to handle with objects in the scope of your custom hook and don't use global objects. In these cases you can use `useMemo`, `useRef` or `useState` to make sure that the reference of your returned object does not change unnecessarily. Which of those three hooks you choose depends on the use case.
+In most cases you have to deal with objects inside the scope of your custom hook and don't use global objects. In these cases you can use `useMemo`, `useRef` or `useState` to make sure that the reference of your returned object does not change unnecessarily. Which of those three hooks you choose depends on the use case.
 
 ### useMemo
 
-`useMemo` also has a dependency array. For this reason you have to ensure to work either with primitives or that references in this dependency array don't change unncessesarily:
+`useMemo` also has a dependency array. For this reason you have to ensure to work either with primitives or ensure that references in this dependency array don't change unncessesarily:
 
 **good for primitive dependencies**
 
@@ -83,7 +83,7 @@ export const useCustom = () => {
   // In this case, when you want to use useMemo,
   //   you have to ensure that useDep
   //   returns an object which reference doesn't change
-  //   every time when the hook useCustom is rerenderd.
+  //   every time when the hook useCustom is called. (Expect this behaviour would be valid)
   // If you don't do that, useMemo would always return
   //   an object with a new reference
   const memorizedObject = useMemo(() => ({ hello: dependencyObject.val }), [
@@ -95,7 +95,7 @@ export const useCustom = () => {
 
 Therefore i would recommend to use `useRef` with `dequal` for such cases (next expamle).
 
-More examples for `useMemo` in `src/non-global-objects/primitive-hook-args/useMemo.ts` & `src/non-global-objects/object-hook-args/useMemo.ts`
+Find more examples of `useMemo` in `src/non-global-objects/primitive-hook-args/useMemo.ts` & `src/non-global-objects/object-hook-args/useMemo.ts`.
 
 ### useRef
 
@@ -117,7 +117,7 @@ export const useCustom = () => {
 
 In this example we use [dequal](https://github.com/lukeed/dequal) for deep comparison of the memorized object and the dependency object.
 
-More examples for `useRef` in `src/non-global-objects/primitive-hook-args/useRef.ts` and `src/non-global-objects/object-hook-args/useRef.ts`
+Find more examples of `useRef` in `src/non-global-objects/primitive-hook-args/useRef.ts` and `src/non-global-objects/object-hook-args/useRef.ts`
 
 ### useState
 
