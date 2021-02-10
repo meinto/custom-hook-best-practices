@@ -1,6 +1,6 @@
 # Custom Hooks Dos & Dont's
 
-This project shows some examples, how mistakes with object references in custom hooks could look like and serveral ways how to prevent it.
+This project shows some examples, how mistakes with object references in custom hooks could look and serveral ways how to prevent it.
 
 ```
 yarn test
