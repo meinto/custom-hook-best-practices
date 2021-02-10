@@ -44,10 +44,10 @@ More examples in `src/simple/globalObjects.ts`
 **bad**
 
 ```tsx
-export const useGlobalObject = () => ({ hello: "world" });
+export const useInlineObject = () => ({ hello: "world" });
 
 const ExampleApp = () => {
-  const res = useGlobalObject();
+  const res = useInlineObject();
   useEffect(() => {
     // this effect will always be triggered
     // because the reference of "res" will change every time it rerenderes
