@@ -9,10 +9,7 @@ const sample = {
 
 export const useFail = (obj: { hello: string }) => obj
 
-/**
- * This Solition is not optimal!
- * Use useRef instead (see ./useRef.ts)
- */
+// Beware: This Solition triggeres an additional rerendering
 export const useSolution = (obj: { hello: string }) => {
   const [stateObject, setStateObject] = useState(obj)
   useDeepCompareEffect(() => {
