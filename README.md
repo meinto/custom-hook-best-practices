@@ -117,6 +117,17 @@ export const useCustom = () => {
 
 In this example we use [dequal](https://github.com/lukeed/dequal) for deep comparison of the memorized object and the dependency object.
 
+But for simplicity you can also use [use-memorized-value](https://github.com/meinto/use-memorized-value):
+
+```tsx
+import { useMemorizedValue } from "use-memorized-value";
+// object dependencies
+export const useCustom = () => {
+  const dependencyObject = useDep();
+  return useMemorizedValue(dependencyObject);
+};
+```
+
 Find more examples of `useRef` in `src/non-global-objects/primitive-hook-args/useRef.ts` and `src/non-global-objects/object-hook-args/useRef.ts`
 
 ### useState

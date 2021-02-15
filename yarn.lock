@@ -4447,6 +4447,14 @@ use-deep-compare-effect@^1.6.1:
     "@types/react" "^17.0.0"
     dequal "^2.0.2"
 
+use-memorized-value@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/use-memorized-value/-/use-memorized-value-1.0.5.tgz#b69f516439f139849d0d8de0e5ab09d6a88db2fd"
+  integrity sha512-LiKn9ZLM8c+rsdsp5CWGTUR6LQvYnnC6fY90PKseZioaOanT6oP8jzJAaohh5Odu0KtcSKk/D6TfYRMnJSbflg==
+  dependencies:
+    dequal "^2.0.2"
+    react "^17.0.1"
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"

@@ -1,14 +1,10 @@
-import { useRef } from 'react'
+import { useMemorizedValue } from 'use-memorized-value'
 
 export const name = 'mutable ref object reference'
 
 export const useFail = (val: string) => ({ hello: val })
 
 export const useSolution = (val: string) => {
-  const refObject = useRef({ hello: val })
-  if (refObject.current.hello !== val) {
-    refObject.current = { hello: val }
-  }
-  return refObject.current
+  return useMemorizedValue({ hello: val })
 }
 
